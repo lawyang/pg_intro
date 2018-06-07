@@ -1,7 +1,7 @@
-CREATE TABLE sons(
+CREATE TABLE songs(
     id serial primary key,
-    rank intger,
-    artist carchar(80),
+    rank integer,
+    artist varchar(80),
     track varchar(120),
     published date
 )

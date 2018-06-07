@@ -1,9 +1,9 @@
 const pg = require('pg');
-const Pool = pg.pool;
+const Pool = pg.Pool;
 
 const DATABASE_NAME = 'music_library';
 const config = {
-    databse: DATABASE_NAME, // the name of the database to connect to
+    database: DATABASE_NAME, // the name of the database to connect to
     host: 'localhost', //Where the db is located
     port: 5432, // default PORT for the localhost POSTGRES db
     max: 10, // max number of connections to the db kept up at a time
