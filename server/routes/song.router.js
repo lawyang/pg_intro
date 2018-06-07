@@ -23,11 +23,10 @@ router.get('/', ( req, res ) => {
 router.post('/', ( req, res ) => {
     console.log(`in song router-POST`);
     // uses req.body
-    //INSERT INTO "songs"("id", "rank", "artist", "track", "published") VALUES(160, 412, 'Gordon Jenkins & The Weavers', 'Goodnight, Irene', '1/1/1950')
-    let queryPost = `INSERT INTO "songs"("rank", "artist", "track", "published") VALUES(412, 'Curtis  Law Band', 'Goodnight Sweet Princes', '1/1/1950');`; 
-    pool.query(queryPost)
+    let newSong = req.body;
+    let queryPost = `INSERT INTO "songs"("rank", "artist", "track", "published") VALUES($1, $2, $3, $4);`; 
+    pool.query(queryPost, [newSong.rank, newSong.artist, newSong.track, newSong.published])
         .then((result) => {
-            res.send(result.rows);
             console.log(`success POST of song ${result}`);
             res.sendStatus(200);
         })
