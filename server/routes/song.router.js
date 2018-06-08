@@ -24,6 +24,7 @@ router.post('/', ( req, res ) => {
     console.log(`in song router-POST`);
     // uses req.body
     let newSong = req.body;
+    // THE CORRECT METHOD TO WRITE THE QUERY
     let queryPost = `INSERT INTO "songs"("rank", "artist", "track", "published") VALUES($1, $2, $3, $4);`; 
     pool.query(queryPost, [newSong.rank, newSong.artist, newSong.track, newSong.published])
         .then((result) => {
@@ -51,7 +52,7 @@ router.put('/:id', (req, res) => {
             console.log('Error', err);
             res.sendStatus(500);
         });
- });
+});
 
 router.delete('/:id', ( req, res ) => {
     console.log(`in song router-DELETE`);
