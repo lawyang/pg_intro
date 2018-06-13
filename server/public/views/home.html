@@ -1,1 +1,31 @@
-<h1> HOME SLICE </h1>
+
+<div ng-controller="home as HC">
+    <input type="text" placeholder="Artist" ng-model="HC.artist">
+    <input type="text" placeholder="Track" ng-model="HC.track">
+    <input type="text" placeholder="Pub. Date yr/mo/day" ng-model="HC.publish">
+    <input type="number" placeholder="rank" ng-model="HC.rank">
+    <button ng-click="HC.submitButton()">Submit</button>
+    <br>
+    <br>
+    {{HC.test}}
+    <div>
+            <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>artist</th>
+                            <th>track</th>
+                            <th>published</th>
+                            <th>rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="song in HC.arrayToDisplay">
+                            <td>{{song.artist}}</td>
+                            <td>{{song.track}}</td>
+                            <td>{{song.published}}</td>
+                            <td>{{song.rank}}</td>
+                        </tr>
+                    </tbody>
+    </div>
+
+</div>

@@ -1,11 +1,17 @@
-songApp.controller('songCollection', function(gifService) {
+songApp.controller('songCollection', function(SongService) {
     vm = this;
     vm.test = 'test';
-    
-    vm.getSongs = () => {
-        console.log(`I'm on a boat in the SongApp Controller`);
+    vm.arrayToDisplay = [];
 
+    vm.displaySongs = function(){
+        SongService.getSongs()
+            .then( function(){
+                vm.arrayToDisplay = SongService.sendToSongController
+                console.log(vm.arrayToDisplay)
+            })
     }
+
+    vm.displaySongs();
 
 
 })

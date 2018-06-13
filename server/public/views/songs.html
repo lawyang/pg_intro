@@ -1,7 +1,24 @@
 <h2> Full Stack Song Collection  </h2>
 <div ng-controller="songCollection as SC">
-    <p>{{SC.test}}</p>
-    <p>hello</p>
-
-
+    <p>Number of songs in collection: {{SC.arrayToDisplay.length}}</p>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>artist</th>
+                    <th>track</th>
+                    <th>published</th>
+                    <th>rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="song in SC.arrayToDisplay | orderBy: 'artist' as arrayToDisplay ">
+                    <td>{{song.artist}}</td>
+                    <td>{{song.track}}</td>
+                    <td>{{song.published}}</td>
+                    <td>{{song.rank}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

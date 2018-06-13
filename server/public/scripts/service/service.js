@@ -1,22 +1,25 @@
-songApp.service( 'SongService', function( $http ) {
+songApp.service('SongService', function( $http ) {
     let sv = this;
 
     sv.sendToSongController = {};
 
     sv.getSongs = function( needparameter ){
         console.log( `in service` );
-
         return $http({
             method: 'GET',
-            url: '/song'  // IS THIS THE CORRECT URL?
+            url: '/song'
         })
         .then( function( response ) {
-            console.log(`back with a response data: ${response.data}`)
-
+            sv.sendToSongController = response.data;
         })
         .catch( function( error ) {
             console.log(`ERROR in SERVICE FROM DB: ${error}`);
-            
+            res.sendStatus(500);  
         })
     }
+
+
+
+
+
 })
